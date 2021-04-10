@@ -66,13 +66,15 @@ export const useRoomHooks = () => {
           createdAt: new Date().getTime(),
         });
 
-      fetch(`${Constant.endPoint}/create_talk`, {
-        method: 'post',
-        headers: await get_headers(),
-        body: JSON.stringify({
-          message: data.message,
-        }),
-      });
+      setTimeout(async () => {
+        fetch(`${Constant.endPoint}/create_talk`, {
+          method: 'post',
+          headers: await get_headers(),
+          body: JSON.stringify({
+            message: data.message,
+          }),
+        });
+      }, 500);
     } catch (error) {}
   };
 
