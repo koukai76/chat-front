@@ -23,7 +23,7 @@ const creact_user = async (params: { uname: string; icon: number }) => {
       rid: 'init',
       uname: params.uname,
       icon: params.icon,
-      createdAt: new Date().getTime(),
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
     });
 };
 

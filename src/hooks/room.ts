@@ -22,7 +22,7 @@ const set_images_table = async (url: string) => {
     .push({
       uid: (await firebase.auth().currentUser?.uid) as string,
       url: url,
-      createdAt: new Date().getTime(),
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
     });
 };
 
@@ -63,7 +63,7 @@ export const useRoomHooks = () => {
           uname: _user.data.uname,
           message: data.message,
           kind: 0,
-          createdAt: new Date().getTime(),
+          createdAt: firebase.database.ServerValue.TIMESTAMP,
         });
 
       setTimeout(async () => {
@@ -127,7 +127,7 @@ export const useRoomHooks = () => {
           uname: _user.data.uname,
           message: url,
           kind: 0,
-          createdAt: new Date().getTime(),
+          createdAt: firebase.database.ServerValue.TIMESTAMP,
         });
 
       on_submit({ message: '' });
